@@ -7,14 +7,6 @@ jobs:
     steps: 
       - checkout
       - 
-        run:
-        command: |
-            aws configure \
-            --AWS Access Key ID [None]: AKIAUNPM5RM4GJ4PXZN4
-            --AWS Secret Access Key [None]: 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
-            --Default region name [None]: us-west-2
-            --Default output format [None]: json
-      - 
         run: 
           command: |
               aws ec2 describe-instances \
