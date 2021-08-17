@@ -7,6 +7,11 @@ jobs:
     steps: 
       - checkout
       - 
+        command: |
+            aws configure \
+              --Default region name [None]: us-west-2
+        run: ~
+      - 
         run: 
           command: |
               aws ec2 describe-instances \
