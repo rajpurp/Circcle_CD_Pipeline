@@ -7,10 +7,10 @@ jobs:
     steps: 
       - checkout
       - 
+        run:
         command: |
             aws configure \
               --Default region name [None]: us-west-2
-        run: ~
       - 
         run: 
           command: |
