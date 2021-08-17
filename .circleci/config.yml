@@ -1,5 +1,4 @@
 --- 
-version: 2.1
 jobs: 
   inventoryjob: 
     docker: 
@@ -12,9 +11,14 @@ jobs:
           command: |
               aws ec2 describe-instances \
                 --query "Reservations[*].Instances[*].PublicIpAddress" \
-                --output text >> /inventory
+                --output text >> .circleci/ansible/inventory.txt
           name: "Add back-end ip to ansible inventory"
-
+      - 
+        persist_to_workspace: 
+          paths: 
+            - project/.circleci/ansible/inventory.txt
+          root: ~/
+version: 2.1
 workflows: 
   welcome: 
     jobs: 
